@@ -9,7 +9,7 @@ public class HashMarkov implements MarkovInterface{
 	protected int myOrder;			// Length of WordGrams used
     private HashMap<WordGram, ArrayList<String>> map;
 	
-    /**
+	/**
 	 * Default constructor creates order 2 model
 	 */
 	public HashMarkov() {
@@ -27,8 +27,9 @@ public class HashMarkov implements MarkovInterface{
 		myRandom = new Random();
         map = new HashMap<WordGram, ArrayList<String>>();
 	}
+	
 
-    /**
+	/**
 	 * Initializes training text. Should always be called prior to
 	 * random text generation.
 	 */
@@ -51,7 +52,7 @@ public class HashMarkov implements MarkovInterface{
 	}
 
 
-/**
+	/**
 	 * Get a list of Strings containing all words that follow
 	 * from wgram in the training text. Result may be an empty list.
 	 * Implemented by looping over training text.
@@ -135,6 +136,4 @@ public class HashMarkov implements MarkovInterface{
 	public void setSeed(long seed) {
 		myRandom.setSeed(seed);
 	}
-
-
 }
