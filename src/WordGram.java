@@ -21,8 +21,10 @@ public class WordGram {
 	 * @param size Number of elements in WordGram object
 	 */
 	public WordGram(String[] source, int start, int size) {
-		// TODO correctly implement constructor
-		myWords = new String[]{source[start]};
+		myWords = new String[size];
+		System.arraycopy(source, start, myWords, 0, size);		
+		myToString="";
+		myHash=0;
 	}
 
 
@@ -33,8 +35,7 @@ public class WordGram {
 	 * @throws IndexOutOfBoundsException if index < 0 or index >= length()
 	 */
 	public String wordAt(int index) {
-		// TODO correctly implement wordAt
-		return "";
+		return this.myWords[index];
 	}
 
 
@@ -43,8 +44,7 @@ public class WordGram {
 	 * @return order of wordgram, number of words
 	 */
 	public int length() {
-		// TODO correctly implement length 
-		return 0;
+		return myWords.length;
 	}
 
 
@@ -58,7 +58,14 @@ public class WordGram {
 			return false;
 		}
 		WordGram other = (WordGram) o;
-		// TODO complete correct implementation of equals (above is correct)
+		if (this.length()==other.length()) {
+			for (int i = 0; i < this.length(); i++) {
+				if(!this.wordAt(i).equals(other.wordAt(i))){
+					return false;
+				}
+			}
+			return true;
+		}
 		return false;
 	}
 
@@ -70,8 +77,10 @@ public class WordGram {
 	 */
 	@Override
 	public int hashCode() {
-		// TODO correctly implement hashCode
-		return 0;
+		if(myHash==0){
+			myHash = this.toString().hashCode();
+		}
+		return myHash;
 	}
 
 
@@ -84,8 +93,13 @@ public class WordGram {
 	 * @return new WordGram
 	 */
 	public WordGram shiftAdd(String last) {
-		// TODO correctly implement shiftAdd
-		return this;
+		String[] temp = new String[myWords.length];
+		for (int i = 1; i < temp.length; i++) {
+			temp[i-1]=myWords[i];
+		}
+		temp[myWords.length-1]=last;
+		WordGram newWordGram = new WordGram(temp, 0, temp.length);
+		return newWordGram;
 	}
 
 
@@ -95,7 +109,7 @@ public class WordGram {
 	 */
 	@Override
 	public String toString() {
-		// TODO correctly implement toString
-		return "";
+		myToString = String.join(" ", myWords);
+		return myToString;
 	}
 }
