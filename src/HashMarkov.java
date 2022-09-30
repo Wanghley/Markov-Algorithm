@@ -23,7 +23,16 @@ public class HashMarkov extends BaseMarkov{
 		for (int i = 0; i < myWords.length+1-super.myOrder; i++) {
 			tempWG = new WordGram(myWords, i, super.myOrder);
 			map.putIfAbsent(tempWG, new ArrayList<String>());
-			map.get(tempWG).addAll(Arrays.asList(Arrays.copyOfRange(myWords, i+super.myOrder, super.myWords.length))); // insert all following words to the hashmap of the given WordGram object
+			map.get(tempWG).addAll(Arrays.asList(Arrays.copyOfRange(myWords, i+super.myOrder, i+super.myOrder+1))); // insert all following words to the hashmap of the given WordGram object
 		}
+	}
+
+    @Override
+	public List<String> getFollows(WordGram wgram) {
+		List<String> followWords = map.get(wgram);
+        if(followWords!=null){
+            return followWords;
+        }
+        return new ArrayList<String>();
 	}
 }
