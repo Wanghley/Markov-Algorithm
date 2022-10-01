@@ -39,6 +39,7 @@ public class BaseMarkov implements MarkovInterface {
 	 * random text generation.
 	 */
 	@Override
+	// Time Complexity: O(n)
 	public void setTraining(String text){
 		myWords = text.split("\\s+");
 	}
@@ -53,6 +54,7 @@ public class BaseMarkov implements MarkovInterface {
 	 * May be empty.
 	 */
 	@Override
+	// Time Complexity: O(n^2)
 	public List<String> getFollows(WordGram wgram) {
 		List<String> follows = new ArrayList<>();
 		WordGram currentWG = new WordGram(myWords,0,wgram.length());
@@ -77,14 +79,15 @@ public class BaseMarkov implements MarkovInterface {
 	 * @return a random word among those that follow after kGram in 
 	 * the training text, or a random word from the training text.
 	 */
+	// Time Complexity: O(n)
 	private String getNext(WordGram wgram) {
-		List<String> follows = getFollows(wgram);
-		if (follows.size() == 0) {
-			int randomIndex = myRandom.nextInt(myWords.length);
-			follows.add(myWords[randomIndex]);
+		List<String> follows = getFollows(wgram); //1, O(n)
+		if (follows.size() == 0) { //1, O(1)
+			int randomIndex = myRandom.nextInt(myWords.length); //1, O(1)
+			follows.add(myWords[randomIndex]); //1, O(N)
 		}
-		int randomIndex = myRandom.nextInt(follows.size());
-		return follows.get(randomIndex);
+		int randomIndex = myRandom.nextInt(follows.size()); //1, O(1)
+		return follows.get(randomIndex); //1, O(1)
 	}
 
 
@@ -99,18 +102,19 @@ public class BaseMarkov implements MarkovInterface {
 	 * separated by spaces
 	 */
 	@Override
+	// Time Complexity: O(n^2)
 	public String getRandomText(int length){
-		ArrayList<String> randomWords = new ArrayList<>(length);
-		int index = myRandom.nextInt(myWords.length - myOrder + 1);
-		WordGram current = new WordGram(myWords,index,myOrder);
-		randomWords.add(current.toString());
+		ArrayList<String> randomWords = new ArrayList<>(length); // 1, O(1)
+		int index = myRandom.nextInt(myWords.length - myOrder + 1); // 1, O(1)
+		WordGram current = new WordGram(myWords,index,myOrder); // 1, O(1)
+		randomWords.add(current.toString()); // 1, O(n)
 
-		for(int k=0; k < length-myOrder; k += 1) {
-			String nextWord = getNext(current);
-			randomWords.add(nextWord);
-			current = current.shiftAdd(nextWord);
+		for(int k=0; k < length-myOrder; k += 1) { // n, O(1)
+			String nextWord = getNext(current); // n, O(n)
+			randomWords.add(nextWord); // n, O(1)
+			current = current.shiftAdd(nextWord); // n, O(1)
 		}
-		return String.join(" ", randomWords);
+		return String.join(" ", randomWords); //1, O(1)
 	}
 
 
