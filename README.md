@@ -79,21 +79,25 @@ git clone https://github.com/Wanghley/Markov-Algorithm
 cd Markov-Algorithm
 ```
 
-## Structure
-Markov-Algorithm/
-├── data
-├── figures
-├── lib
-├── src/
-│   ├── BaseMarkov.java
-│   ├── HashMarkov.java
-│   ├── MarkovDriver.java
-│   ├── MarkovInterface.java
-│   ├── MarkovTest.java
-│   ├── TextSource.java
-│   ├── WordGram.java
-│   └── WordGramTest.java
-└── README.md
+## Folder Structure
+
+```bash
+    Markov-Algorithm/
+    ├── data
+    ├── figures
+    ├── lib
+    ├── src/
+    │   ├── BaseMarkov.java
+    │   ├── HashMarkov.java
+    │   ├── MarkovDriver.java
+    │   ├── MarkovInterface.java
+    │   ├── MarkovTest.java
+    │   ├── TextSource.java
+    │   ├── WordGram.java
+    │   └── WordGramTest.java
+    └── README.md
+```
+
 ## Usage
 
 ```sh
@@ -135,5 +139,4 @@ Colab has wildly varying transfer speeds, because of this, the best we can offer
 - Currently `--sync` breaks if rsync is ran after. If you are mirroring drives. Disable `--sync` and use the rsync's `--delete` function.
 
 ## Credits
-- Credit to [ikonikon](https://github.com/ikonikon/fast-copy) for the base multi-threading code.   
-- Thanks to [@Ostokhoon](https://www.freelancer.com/u/Ostokhoon) for ALL argument and folder hierarchy functionality.
+- Credit to [Professor Brandon Fain](https://sites.duke.edu/btfain/) for the base Markov code used on this project.   
