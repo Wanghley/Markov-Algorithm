@@ -20,10 +20,15 @@ public class HashMarkov extends BaseMarkov{
 		super.myWords = text.split("\\s+"); // separates words by spaces or newlines
 		map.clear(); // clears the map to avoid previous data used on other trainings
 		WordGram tempWG; // variable to create WordGrams to populate map
-		for (int i = 0; i < myWords.length+1-super.myOrder; i++) {
+		for (int i = 0; i < myWords.length-super.myOrder; i++) {
 			tempWG = new WordGram(myWords, i, super.myOrder);
 			map.putIfAbsent(tempWG, new ArrayList<String>());
+			if (myWords.length==myOrder+i) {
+				map.get(tempWG).add("");
+			}
+			else{
 			map.get(tempWG).addAll(Arrays.asList(Arrays.copyOfRange(myWords, i+super.myOrder, i+super.myOrder+1))); // insert all following words to the hashmap of the given WordGram object
+			}
 		}
 	}
 
