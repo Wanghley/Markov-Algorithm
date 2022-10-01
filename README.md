@@ -19,32 +19,83 @@
   <a href="#best-practice">Best Practice</a> •
   <a href="#credits">Credits</a> •
   <a href="examples.md">More Examples</a>
-</p>  
-
-<p align="center">
-  
-![screenshot](img/clip.gif)
 </p>                                                                                                                             
                                                                                                                                                       
 ## About The Project
-FastColabCopy is a Python script for parallel (multi-threading) copying of files between two locations. Currently developed for Google-Drive to Google-Drive transfers using Google-Colab. This script frequently achieves 10-50x speed improvements when copying numerous small files.
+Computer science uses random Markov processes frequently to analyze many types of data. In this research, a generative model for producing text with a realistic appearance using data-driven techniques is examined in an occasionally comic approach.
 
-## Importing
+Researchers studying artificial intelligence and machine learning in general, and those specializing in natural language processing (the application of algorithmic and statistical AI/ML techniques to human language), are particularly interested in generative models. The [OpenAI GPT-3](https://openai.com/blog/gpt-3-apps/) is a powerful and current example of such a text-generation model using statistical machine learning software.
+
+### Wordgrams
+Like a Java String represents a sequence of letters, WordGram represents a succession of words (expressed as strings). The WordGram class is an immutable sequence of strings, similar to how the Java String class is an immutable sequence of characters. An immutable WordGram object is one that cannot be changed once it has been created. A WordGram object's content cannot be altered. A new WordGram can be made from an existing one, though.
+
+The order of a WordGram is occasionally referred to as the total number of strings it contains. To view some examples of order-3 WordGram objects, expand the section below.
+
+
+<details>
+<Summary>Example of order-3 Wordgrams</summary>
+
+| | | |
+| --- | --- | --- |
+| "wanghley" | "soares" | "martins" |
+| | | |
+
+and 
+| | | |
+| --- | --- | --- |
+| "Humans" | "are" | "destroying" |
+| | | |
+
+</details> 
+<details>
+<Summary>Example of order-5 Wordgrams</summary>
+
+| | | |
+| --- | --- | --- |
+| "wanghley" | "soares" | "martins" | "is" | "crazy" |
+| | | |
+
+and 
+| | | | | |
+| --- | --- | --- | --- | --- |
+| "Humans" | "are" | "destroying" | "the" | "planet" |
+| | | | | |
+
+</details> 
+</br></br>
+
+### Markov Model
+Models with the Markov property are random models. In this instance, our goal is to develop a Markov model for generating random text that resembles training text. The Markov property in our context means that the probability for each subsequent word will be predicated on those of the preceding words. We shall produce one random word at a time.
+
+When predicting text, an order-k Markov model uses order-k WordGrams, often known as k-grams (where k is the order). First, we choose a k-gram at random from the training text (the data we use to create our model; we want to generate random text similar to the training text). After that, we search for occurrences of that k-gram in the training text to determine the probabilities associated with possible next words. Then, using the final k-1 words from the prior k-gram and the newly formed word, we repeat the process, this time generating a new word in accordance with these probabilities. Continue in this manner until the necessary number of random words has been generated.
+
+Read more about Markov Models and applications [HERE](http://dx.doi.org/10.1007/978-3-540-68947-8_8)
+
+## Cloning
 
 Import from GitHub:
-```py
-!wget https://raw.githubusercontent.com/L0garithmic/fastcolabcopy/main/fastcopy.py
-import fastcopy
+```sh
+git clone https://github.com/Wanghley/Markov-Algorithm
+cd Markov-Algorithm
 ```
 
-Import from Google Drive:
-```py
-!cp /gdrive/MyDrive/fastcopy.py .
-import fastcopy
-```
-
-
+## Structure
+Markov-Algorithm/
+├── data
+├── figures
+├── lib
+├── src/
+│   ├── BaseMarkov.java
+│   ├── HashMarkov.java
+│   ├── MarkovDriver.java
+│   ├── MarkovInterface.java
+│   ├── MarkovTest.java
+│   ├── TextSource.java
+│   ├── WordGram.java
+│   └── WordGramTest.java
+└── README.md
 ## Usage
+
 ```sh
 usage: fast-copy.py [-h HELP] source destination [-d DELETE] [-s SYNC] [-r REPLACE]
 
