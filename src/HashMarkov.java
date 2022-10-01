@@ -40,19 +40,4 @@ public class HashMarkov extends BaseMarkov{
         }
         return new ArrayList<String>();
 	}
-
-    // @Override
-	// public String getRandomText(int length){
-	// 	ArrayList<String> randomWords = new ArrayList<>(length);
-	// 	int index = myRandom.nextInt(myWords.length - myOrder + 1);
-	// 	WordGram current = new WordGram(myWords,index,myOrder);
-	// 	randomWords.add(current.toString());
-
-	// 	for(int k=0; k < length-myOrder; k += 1) {
-	// 		String nextWord = getNext(current);
-	// 		randomWords.add(nextWord);
-	// 		current = current.shiftAdd(nextWord);
-	// 	}
-	// 	return String.join(" ", randomWords);
-	// }
 }
