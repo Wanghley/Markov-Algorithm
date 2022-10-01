@@ -14,11 +14,7 @@
 </p>
 <p align="center">
   <a href="#about-the-project">About The Project</a> •
-  <a href="#usage">How To Use</a> •
-  <a href="#examples">Examples</a> •
-  <a href="#best-practice">Best Practice</a> •
-  <a href="#credits">Credits</a> •
-  <a href="examples.md">More Examples</a>
+  <a href="#Cloning">How To Use</a>
 </p>                                                                                                                             
                                                                                                                                                       
 ## About The Project
@@ -62,7 +58,7 @@ and
 | | | | | |
 
 </details> 
-</br></br>
+
 
 ### Markov Model
 Models with the Markov property are random models. In this instance, our goal is to develop a Markov model for generating random text that resembles training text. The Markov property in our context means that the probability for each subsequent word will be predicated on those of the preceding words. We shall produce one random word at a time.
