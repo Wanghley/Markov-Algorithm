@@ -97,7 +97,7 @@ class WordGramTest {
         WordGram test = new WordGram(words, 0, 3);
         String one = test.toString();
         String two = test.toString();
-        assertTrue(one == two, "Make sure that calling toString twice results in the same String with same memory location - see writeup");
+        assertTrue(one.equals(two), "Make sure that calling toString twice results in the same String with same memory location - see writeup");
     }
 
     @Test
