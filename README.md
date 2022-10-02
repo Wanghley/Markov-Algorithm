@@ -13,8 +13,10 @@
     </p>
 </p>
 <p align="center">
-  <a href="#about-the-project">About The Project</a> •
-  <a href="#Cloning">How To Use</a>
+  • <a href="#about-the-project">About The Project</a> •
+  <a href="#Cloning">How To Use</a> •
+  <a href="#Analysis">Runtime Analysis</a> •
+  <a href="#Credits">Credits</a> •
 </p>                                                                                                                             
                                                                                                                                                       
 ## About The Project
