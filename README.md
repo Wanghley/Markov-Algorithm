@@ -169,9 +169,9 @@ This difference could occur due to the background execution on the process since
 getRandomText() behaviored exactly as expected for a run time of O(n²). The comparison graphs can be found below, based on the table above. 
 
 <p float="left">
-  <img src="figures/BaseMarkovAlice.png" width="33%"/>
-  <img src="figures/BaseMarkovShakespeare.png" width="33%"/> 
-  <img src="figures/BaseMarkov-kjv10.png" width="33%"/>
+  <img src="figures/BaseMarkovAlice.png" width="32%"/>
+  <img src="figures/BaseMarkovShakespeare.png" width="32%"/> 
+  <img src="figures/BaseMarkov-kjv10.png" width="32%"/>
 </p>
 
 ### HashMarkov
@@ -259,9 +259,9 @@ setTraining() behaviored almost as a logarithmic function (complexity O(log(n)))
 getRandomText() behaviored exactly as expected for a run time of O(1). The comparison graphs can be found below, based on the table above.
 
 <p float="left">
-  <img src="figures/HashMarkovAlice.png" width="33%"/>
-  <img src="figures/HashMarkovShakespeare.png" width="33%"/> 
-  <img src="figures/HashMarkov-kjv10.png" width="33%"/>
+  <img src="figures/HashMarkovAlice.png" width="32%"/>
+  <img src="figures/HashMarkovShakespeare.png" width="32%"/> 
+  <img src="figures/HashMarkov-kjv10.png" width="32%"/>
 </p>
 
 ## Credits
